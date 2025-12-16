@@ -40,6 +40,7 @@ const LoginPage = () => {
             // 3. apiService.login(username, password) 호출
             // 4. 성공 시: localStorage에 token과 user 저장, /feed로 이동
             const res = await apiService.login(userEmail, password);
+            console.log("res", res)
             alert("로그인 성공!");
             navigate("/feed");
         } catch(err) {
@@ -116,9 +117,11 @@ const LoginPage = () => {
                         Facebook으로 로그인
                     </button>
 
-                    <img src="/static/img/kakao_login_large_wide.png"
-                         onClick={handleKakaoLogin}
-                    />
+                    <div className="sns-button">
+                        <img src="/static/img/kakao_login_large_wide.png"
+                             onClick={handleKakaoLogin}
+                        />
+                    </div>
 
                     <button className="forgot-password">
                         비밀번호를 잊으셨나요?

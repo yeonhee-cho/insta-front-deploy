@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import apiService from '../service/apiService';
-import {ArrowLeft, Image, X} from 'lucide-react';
+import {Image, X} from 'lucide-react';
 import {getFilteredFile, FILTER_OPTIONS} from '../service/filterService';
 import Header from "../components/Header";
 
@@ -22,7 +22,7 @@ const StoryUploadPage = () => {
     const navigate = useNavigate();
 
     // localStorage에서 user 정보 가져오기 (JSON.parse 사용)
-    const user = JSON.parse(localStorage.getItem('user') || {});
+    // const user = JSON.parse(localStorage.getItem('user') || {});
 
     // handleImageChange 함수
     const handleImageChange = (e) => {

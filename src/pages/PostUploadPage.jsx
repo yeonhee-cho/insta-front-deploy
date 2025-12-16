@@ -9,7 +9,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import apiService from '../service/apiService';
-import { ArrowLeft, Image } from 'lucide-react';
+import { Image } from 'lucide-react';
 import {getFilteredFile, FILTER_OPTIONS} from "../service/filterService";
 import Header from "../components/Header";
 import MentionInput from "../components/MentionInput";

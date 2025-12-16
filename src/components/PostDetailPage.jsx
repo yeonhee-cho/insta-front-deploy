@@ -9,7 +9,6 @@ import PostOptionsMenu from "./PostOptionsMenu";
 
 const PostDetailPage = () => {
     const {postId} = useParams();
-    const {commentId} = useParams();
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);
     const [selectedPost, setSelectedPost] = useState(null);

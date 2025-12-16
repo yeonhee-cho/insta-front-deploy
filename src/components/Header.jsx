@@ -1,7 +1,6 @@
 import {ArrowLeft, Film, Home, MessageCircle, PlusSquare, Settings, User} from "lucide-react";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import apiService from "../service/apiService";
 import Sidebar from "./Sidebar";
 
 import SearchModal from "./SearchModal";

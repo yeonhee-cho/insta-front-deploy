@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import apiService from '../service/apiService';
 import {getImageUrl} from "../service/commonService";
-import mentionText from "./MentionText";
 
 const MentionInput = ({ value, onChange, placeholder, rows = 4 }) => {
     const [showSuggestions, setShowSuggestions] = useState(false);

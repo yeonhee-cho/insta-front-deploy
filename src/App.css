@@ -97,6 +97,14 @@ body {
     cursor: pointer;
 }
 
+.sns-button {
+    width: 100%;
+}
+
+.sns-button img {
+    width: 100%;
+}
+
 .forgot-password {
     width: 100%;
     text-align: center;

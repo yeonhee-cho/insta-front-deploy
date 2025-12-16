@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import {X, MoreHorizontal, Heart, Send, ChevronLeft, ChevronRight} from 'lucide-react';
-import apiService, {API_BASE_URL} from "../service/apiService";
+import apiService from "../service/apiService";
 import {formatDate, getImageUrl} from "../service/commonService";
 
 /**
@@ -28,7 +28,7 @@ const StoryDetailPage = () => {
     const [stories, setStories] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [loading, setLoading] = useState(true);
-    const [message, setMessage] = useState('');
+    // const [message, setMessage] = useState('');
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const currentUser = JSON.parse(localStorage.getItem('user')); // 현재 아이디 확인
 

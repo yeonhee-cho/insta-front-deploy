@@ -9,7 +9,6 @@
 // ============================================
 
 import axios from 'axios';
-import config from "tailwindcss/defaultConfig";
 
 axios.defaults.withCredentials = true; // 쿠키 포함 허용 설정
 
