@@ -41,7 +41,7 @@ const LoginPage = () => {
             // 4. 성공 시: localStorage에 token과 user 저장, /feed로 이동
             const res = await apiService.login(userEmail, password);
             console.log("res", res)
-            alert("로그인 성공!");
+            alert("로그인 성공! ");
             navigate("/feed");
         } catch(err) {
             // 5. 실패 시: alert로 에러 메시지 표시
