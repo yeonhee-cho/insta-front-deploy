@@ -9,7 +9,7 @@
 // ============================================
 
 import axios from 'axios';
-import {API_BASE_URL} from "./commonService";
+// import {API_BASE_URL} from "./commonService";
 
 axios.defaults.withCredentials = true; // 쿠키 포함 허용 설정
 
