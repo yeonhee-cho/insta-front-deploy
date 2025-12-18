@@ -162,8 +162,8 @@ const SearchModal = ({ isOpen, onClose }) => {
                                         >
                                             <img src={getImageUrl(user.userAvatar)} className="search-result-avatar"/>
                                             <div className="search-result-info">
-                                                <div className="search-result-username">{user.userName}</div>
-                                                <div className="search-result-fullname">{user.userFullname}</div>
+                                                <p className="search-result-username">{user.userName}</p>
+                                                <p className="search-result-fullname">&nbsp;{user.userFullname}</p>
                                             </div>
                                             <X size={16} className="search-remove-icon"
                                                onClick={(e) => removeRecentSearch(user.userId, e)}/>
