@@ -1,7 +1,7 @@
 // src/service/commonService.js
 
 // API_BASE_URL 상수 선언
-export const API_BASE_URL = "";
+export const API_BASE_URL = "https://3.38.176.223:9000";
 
 /**
  * 이미지 경로를 받아서 완전한 URL을 반환하는 함수
