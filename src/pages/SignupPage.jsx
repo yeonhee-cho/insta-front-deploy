@@ -61,7 +61,7 @@ const SignupPage = () => {
             setFullName(kakaoUser.fullName);
             setIsKakaoSignup(true);
         }
-    }, []);
+    }, [location.state]);
 
     // handleSignup 함수
     const handleSignup = async () => {
