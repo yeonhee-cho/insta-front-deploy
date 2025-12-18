@@ -153,6 +153,8 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     font-family: 'Cookie', cursive;
+    display: flex;
+    align-items: center;
 }
 
 .header-title img{
