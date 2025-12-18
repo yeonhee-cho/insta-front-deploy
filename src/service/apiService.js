@@ -14,7 +14,7 @@ import {API_BASE_URL} from "./commonService";
 axios.defaults.withCredentials = true; // 쿠키 포함 허용 설정
 
 // 백엔드 API 기본 주소
-export const API_BASE_URL_API = /api`;
+export const API_BASE_URL_API = `/api`;
 
 // axios 인스턴스 생성
 const api = axios.create({
