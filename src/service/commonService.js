@@ -28,7 +28,7 @@ export const getImageUrl = (path) => {
     if(!path.startsWith('http')) {
         if(path === 'default-avatar.jpg') return defaultImage;
         if(path === 'default-avatar.png') return defaultImage;
-        return `https://3.38.176.223:9000/${path}`;
+        return `https://3.38.176.223:9000${path}`;
     };
 
     return `${API_BASE_URL}${path}`
