@@ -123,7 +123,6 @@ const LoginPage = () => {
                     <div className="sns-button">
                         <img src="/static/img/kakao_login_large_wide.png"
                              onClick={handleKakaoLogin}
-                             style={}
                         />
                     </div>
 
