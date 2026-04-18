@@ -31,7 +31,8 @@ body {
 }
 
 .login-title {
-    font-size: 2.5rem;
+    width: 100%;
+    font-size: 2rem; /*2.5rem*/
     font-family: 'Cookie', cursive;
     text-align: center;
     margin-bottom: 2rem;
