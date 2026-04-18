@@ -51,6 +51,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                 setSearchResults(res || []);
             } catch (e) {
                 setSearchResults([]);
+                console.error(err);
             } finally {
                 setIsLoading(false);
             }
@@ -72,7 +73,7 @@ const SearchModal = ({ isOpen, onClose }) => {
         const newRecent = [
             user,
             ...recentSearches.filter(u => u.userId !== user.userId)
-        ].slice(0, 10);
+        ].slice(0, 10); // 10개까지만
 
         setRecentSearches(newRecent);
         localStorage.setItem('recentSearches', JSON.stringify(newRecent));
@@ -162,8 +163,8 @@ const SearchModal = ({ isOpen, onClose }) => {
                                         >
                                             <img src={getImageUrl(user.userAvatar)} className="search-result-avatar"/>
                                             <div className="search-result-info">
-                                                <p className="search-result-username">{user.userName}</p>
-                                                <p className="search-result-fullname">&nbsp;{user.userFullname}</p>
+                                                <div className="search-result-username">{user.userName}</div>
+                                                <div className="search-result-fullname">{user.userFullname}</div>
                                             </div>
                                             <X size={16} className="search-remove-icon"
                                                onClick={(e) => removeRecentSearch(user.userId, e)}/>
@@ -186,16 +187,16 @@ const SearchModal = ({ isOpen, onClose }) => {
                             ) : searchResults.length > 0 ? (
                                 /* searchResults 배열을 map으로 순회하여 검색 결과 표시 */
                                 /* 위의 최근 검색과 동일한 구조이지만 X 버튼은 필요 없음 */
-                                    searchResults.map((user)=>(
-                                        <div key={user.userId}
-                                             className="search-result-item"
-                                             onClick={() => handleUserClick(user)}
-                                        >
-                                            <img src={getImageUrl(user.userAvatar)} className="search-result-avatar"/>
-                                            <div className="search-result-username">{user.userName}</div>
-                                            <div className="search-result-fullname">{user.userFullname}</div>
-                                        </div>
-                                    ))
+                                searchResults.map((user)=>(
+                                    <div key={user.userId}
+                                         className="search-result-item"
+                                         onClick={() => handleUserClick(user)}
+                                    >
+                                        <img src={getImageUrl(user.userAvatar)} className="search-result-avatar"/>
+                                        <div className="search-result-username">{user.userName}</div>
+                                        <div className="search-result-fullname">{user.userFullname}</div>
+                                    </div>
+                                ))
                             ) : (
                                 <div className="search-empty">
                                     <p>검색 결과가 없습니다.</p>

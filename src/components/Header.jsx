@@ -1,18 +1,19 @@
 import {ArrowLeft, Film, Home, MessageCircle, PlusSquare, Settings, User} from "lucide-react";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import apiService from "../service/apiService";
 import Sidebar from "./Sidebar";
 
 import SearchModal from "./SearchModal";
 
 const Header = ({
-    type="feed",
-    title="",
-    onSubmit = null,
-    submitDisabled = false,
-    submitText = '공유',
-    loading = false
-    }) => {
+                    type="feed",
+                    title="",
+                    onSubmit = null,
+                    submitDisabled = false,
+                    submitText = '공유',
+                    loading = false
+                }) => {
 
     const navigate = useNavigate();
 
@@ -36,7 +37,10 @@ const Header = ({
             <>
                 <header className="header">
                     <div className="header-container">
-                        <h1 className="header-title" onClick={() => navigate(('/'))}>
+                        <h1 className="header-title"
+                            onClick={() => navigate('/feed')}
+                            width="100px"
+                            style={{paddingTop: '3px', cursor:'pointer'}}>
                             <img src="/static/img/logo.png" alt="instagram"/>
                         </h1>
                         <div className="header-nav">
@@ -65,7 +69,7 @@ const Header = ({
                 */}
                 <SearchModal isOpen={isSearchOpen} onClose={closeSearch} />
             </>
-    )
+        )
     }
 
     if(type === 'upload') {

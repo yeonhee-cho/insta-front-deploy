@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import apiService from '../service/apiService';
 import {getImageUrl} from "../service/commonService";
+import mentionText from "./MentionText";
 
 const MentionInput = ({ value, onChange, placeholder, rows = 4 }) => {
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -15,21 +16,21 @@ const MentionInput = ({ value, onChange, placeholder, rows = 4 }) => {
     const searchUsers = async (query) => {
         console.log("🔍 검색 시작 : ", query);
         // 1. query가 없거나 길이가 1 미만이면 suggestions를 빈 배열로 설정하고 종료
-        if(!query || query.lenth <1) {
+        if(!query || query.lenth < 1) {
             console.log("🔍 쿼리가 비어있어요.");
             setSuggestions([]);
             return;
         }
-       try {
-           // 2. apiService.searchUsers(query) 호출
-           const res = await apiService.searchUsers(query);
-           // 3. 결과를 suggestions state에 저장
-           setSuggestions(res || []);
-       } catch (err) {
+        try {
+            // 2. apiService.searchUsers(query) 호출
+            const res = await apiService.searchUsers(query);
+            // 3. 결과를 suggestions state에 저장
+            setSuggestions(res || []);
+        } catch (err) {
             // 4. 에러 발생 시 콘솔에 로그 출력 후 suggestions를 빈 배열로 설정
-           console.log("유저 검색 실패 : ", err);
-           setSuggestions([]);
-       }
+            console.log("❌ 사용자 검색 실패 : ", err);
+            setSuggestions([]);
+        }
     };
 
     // 텍스트 변경 처리 함수 구현
@@ -121,7 +122,8 @@ const MentionInput = ({ value, onChange, placeholder, rows = 4 }) => {
         switch (e.key) {
             case 'ArrowDown':
                 e.preventDefault();
-                setSuggestions((prev) => prev < suggestions.length - 1 ? prev + 1 : 0);
+                // setSuggestions((prev) => prev < suggestions.length - 1 ? prev + 1 : 0);
+                setSelectedIndex((prev) => prev < suggestions.length - 1 ? prev + 1 : 0);
                 break;
             case 'ArrowUp':
                 e.preventDefault();
@@ -129,6 +131,7 @@ const MentionInput = ({ value, onChange, placeholder, rows = 4 }) => {
                 break;
             case 'Enter':
                 if(showSuggestions && suggestions[selectedIndex]) {
+                    // 해당 유저가 있는지 확인하는 조건 추가
                     e.preventDefault();
                     selectUser(suggestions[selectedIndex]);
                 }
@@ -154,8 +157,9 @@ const MentionInput = ({ value, onChange, placeholder, rows = 4 }) => {
         // 3. document에 mousedown 이벤트 리스너 등록
         document.addEventListener('mousedown', handleClickOutside);
         // 4. cleanup 함수에서 이벤트 리스너 제거
-        return() => {document.removeEventListener('mousedown', handleClickOutside);};
-
+        return() => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
     }, []);
 
     // commend -> 이동 예정

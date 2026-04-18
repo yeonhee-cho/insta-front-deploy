@@ -40,8 +40,7 @@ const LoginPage = () => {
             // 3. apiService.login(username, password) 호출
             // 4. 성공 시: localStorage에 token과 user 저장, /feed로 이동
             const res = await apiService.login(userEmail, password);
-            console.log("res", res)
-            alert("로그인 성공! ");
+            alert("로그인 성공!");
             navigate("/feed");
         } catch(err) {
             // 5. 실패 시: alert로 에러 메시지 표시
@@ -84,6 +83,7 @@ const LoginPage = () => {
 
                     <div>
                         <input
+                            className="login-input"
                             type="text"
                             placeholder="전화번호, 사용자 이름 또는 이메일"
                             value={userEmail}
@@ -92,6 +92,7 @@ const LoginPage = () => {
                         />
 
                         <input
+                            className="login-input"
                             type="password"
                             placeholder="비밀번호"
                             value={password}
@@ -113,15 +114,15 @@ const LoginPage = () => {
                         <div className="divider-line"></div>
                     </div>
 
+                    {/*
                     <button className="facebook-login">
                         Facebook으로 로그인
                     </button>
+                    */}
 
-                    <div className="sns-button">
-                        <img src="/static/img/kakao_login_large_wide.png"
-                             onClick={handleKakaoLogin}
-                        />
-                    </div>
+                    <img src="/static/img/kakao_login_large_wide.png"
+                         onClick={handleKakaoLogin}
+                    />
 
                     <button className="forgot-password">
                         비밀번호를 잊으셨나요?
@@ -133,6 +134,7 @@ const LoginPage = () => {
                         계정이 없으신가요?
                         <button className="signup-link"
                                 onClick={() => navigate("/signup")}
+                                style={{paddingLeft: '4px'}}
                         >
                             가입하기
                         </button>

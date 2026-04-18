@@ -14,7 +14,7 @@ const PostDetailModal = ({ post, currentUserId, onClose, onDelete, onToggleLike 
 
     // ============================================
     // 링크 공유 함수 구현
-    // ============================================
+    // ==ㄹ==========================================
     const handleShare = async () => {
         // 공유할 URL 만들기
         const shareUrl = `${window.location.origin}/post/${post.postId}`;
@@ -36,7 +36,7 @@ const PostDetailModal = ({ post, currentUserId, onClose, onDelete, onToggleLike 
                 }
             }
         } else {
-           // Web Share API 미지원 시 클립보드 복사
+            // Web Share API 미지원 시 클립보드 복사
             copyToClipboard(shareUrl);
         }
     };
